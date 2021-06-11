@@ -17,7 +17,7 @@ mkdir $outLogDir
 cp ./sumo-learning/merge_multi.sh $outLogDir
 cp ././sumo-learning/log_to_csv.py $outLogDir
 
-for ((i=0;i<20;i++))
+for i in $(seq 0 19)
 do
     logName="log.${prefixName}_${i}"
     outLogPath="${outLogDir}/${logName}"

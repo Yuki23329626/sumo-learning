@@ -1,5 +1,11 @@
 # 舊版在 windows 上產生路徑的方式
 
+# Installation
+請直接從 [nNS3官方的GitLab](https://gitlab.com/nsnam/ns-3-dev) 複製 respsitory 
+```bash
+git clone git@gitlab.com:nsnam/ns-3-dev.git
+```
+
 1. generate a bundle file from created scenario
 sumo -c test09.sumocfg --fcd-output test09.xml --step-length 1
 
@@ -51,6 +57,7 @@ python D:\SUMO\tools\traceExporter.py --fcd-input %SUMO_XML% --gpsdat-output %SU
 
 5. ./waf --run "test09 --traceFile=scratch/test09.tcl --nodeNum=100 --duration=60 --selectedEnb=0 --outputDir=test09-4"
 在 server 上產生結果
+./waf --run "scratch/lteudp_multi_udp --numberOfUes=100 --startUe=0 --endUe=4 --isSdnEnabled=true --isDownlink=true --isUplink=true --interAppInterval=0.01 --interPacketInterval=50"
 
 cd sumo-learning
 git pull
