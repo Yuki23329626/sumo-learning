@@ -362,7 +362,7 @@ int main (int argc, char *argv[])
     LogComponentEnable ("UdpServer", LOG_ALL);
 
     uint16_t numberOfUes = 100;
-    uint16_t numberOfEnbs = 53;
+    uint16_t numberOfEnbs = 64;
     double distance = 500.0; // m
     double speed = 20;       // m/s
     double simTime = 60; // 1500 m / 20 m/s = 75 secs
@@ -515,6 +515,9 @@ int main (int argc, char *argv[])
     //      Vector enbPosition (distance * (i + 1), distance, 0);
     //      enbPositionAlloc->Add (enbPosition);
     // //    }
+    for ( uint16_t i=0; i < numberOfEnbs; i++){
+	    enbPositionAlloc->Add (Add(Vector(1987+(i%8)*314, 1305+(i/8)*272, 0));
+    }
 
     // enbPositionAlloc->Add(Vector(583, 365, 0));
 
@@ -537,6 +540,7 @@ int main (int argc, char *argv[])
 
     // enbPositionAlloc->Add(Vector(1317, 950, 0));
 
+    /*
     enbPositionAlloc->Add(Vector(577, 211, 0)); //1
     enbPositionAlloc->Add(Vector(722, 208, 0)); //2
     enbPositionAlloc->Add(Vector(880, 198, 0)); //3
@@ -596,6 +600,7 @@ int main (int argc, char *argv[])
     enbPositionAlloc->Add(Vector(923, 1085, 0));  //51
     enbPositionAlloc->Add(Vector(1103, 1075, 0)); //52
     enbPositionAlloc->Add(Vector(1352, 1111, 0)); //53
+    */
 
     MobilityHelper enbMobility;
     enbMobility.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
