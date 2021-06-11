@@ -13,7 +13,7 @@ cd ..
 
 prefixName="lteudp_multi_udp_sdn"
 isSdnEnabled=true
-if [ $isSdnEnabled == false ]
+if [ $isSdnEnabled = false ]
 then
 	prefixName="lteudp_multi_udp_lte"
 fi
@@ -21,11 +21,12 @@ fi
 outLogDir="outLog_${prefixName}"
 echo "isSdnEnabled = ${isSdnEnabled}"
 echo "outLogDir = ${outLogDir}"
-mkdir $outLogDir
+mkdir -p $outLogDir
 cp ./sumo-learning/merge_multi.sh $outLogDir
-cp ././sumo-learning/log_to_csv.py $outLogDir
+cp ./sumo-learning/log_to_csv.py $outLogDir
+cp ./run_multi_udp_0.sh $outLogDir
 
-for ((i=0;i<20;i++))
+for i in $(seq 0 19)
 do
     logName="log.${prefixName}_${i}"
     outLogPath="${outLogDir}/${logName}"
@@ -38,7 +39,7 @@ do
     echo "startUe = ${startUe}"
     echo "endUe = ${endUe}"
     (./waf --run "scratch/lteudp_multi_udp --simTime=60 --numberOfUes=100 --startUe=${startUe} --endUe=${endUe} --isSdnEnabled=${isSdnEnabled} --isDownlink=true --isUplink=true --animFile=${animFile} --interAppInterval=0.001 --interPacketInterval=1 --nPayloadBytes=1036" > $outLogPath 2>&1) &
-    if [ $i == 0 ]
+    if [ $i = 0 ]
     then
 	    sleep 20s
     fi
