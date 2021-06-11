@@ -1,0 +1,17 @@
+clc;
+filename = 'test09-2.csv'
+
+T = readtable(filename)
+
+% T(:,3) also work
+n = unique(T.Var3)
+
+list = zeros
+for i = 1:height(n)
+   num = sum(T.Var3 == n(i))
+   if num >= 2
+       list(end+1) = seconds(n(i))
+   end
+end
+
+M = min(list(:,1))

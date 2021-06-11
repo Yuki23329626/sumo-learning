@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 11/05/20 20:29:41 by Eclipse SUMO GUI Version 1.7.0
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="D:\github\sumo-learning\test03\test03.net.xml"/>
+        <route-files value="D:\github\sumo-learning\test03\test03.rou.xml"/>
+    </input>
+
+</configuration>

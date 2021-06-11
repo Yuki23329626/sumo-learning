@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 11/05/20 20:28:42 by Eclipse SUMO netedit Version 1.7.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="D:\github\sumo-learning\test03\test03.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="D:\github\sumo-learning\test03\test03.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.5"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="false"/>
+    </pedestrian>
+
+    <netedit>
+        <route-files value="D:\github\sumo-learning\test03\test03.rou.xml"/>
+    </netedit>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="coach" maxSpeed="30.00" vClass="coach" color="223,128,29"/>
+    <vType id="normal_car" maxSpeed="60.00" vClass="passenger" color="237,232,36"/>
+    <vType id="sporty_car" maxSpeed="40.00" vClass="passenger" color="237,36,36"/>
+    <vType id="trailer" maxSpeed="30.00" vClass="trailer" color="37,216,47"/>
+    <flow id="flow_1" type="sporty_car" begin="0.00" departLane="best" departPos="last" from="gneE3" to="gneE5" via="gneE4" end="4998.00" number="700"/>
+    <flow id="flow_2" type="normal_car" begin="0.00" departLane="best" departPos="last" from="gneE3" to="gneE5" via="gneE4" end="4998.00" number="7000"/>
+    <flow id="flow_3" type="trailer" begin="0.00" departLane="best" departPos="last" from="gneE3" to="gneE5" via="gneE4" end="4998.00" number="300"/>
+    <flow id="flow_4" type="coach" begin="0.00" departLane="best" departPos="last" from="gneE3" to="gneE5" via="gneE4" end="4998.00" number="300"/>
+</routes>

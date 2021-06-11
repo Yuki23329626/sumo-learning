@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 10/30/20 05:16:04 by Eclipse SUMO GUI Version 1.7.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="D:\github\sumo-learning\helloWorld\helloWorld.net.xml"/>
+        <route-files value="D:\github\sumo-learning\helloWorld\helloWorld.rou.xml"/>
+    </input>
+
+</configuration>
+-->
+
+<snapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/state_file.xsd" version="1.7.0" time="609.00">
+    <route id="!coach" state="1" edges="-gneE8 -gneE7 -gneE6"/>
+    <route id="!flow_0" state="1" edges="gneE6 gneE7 gneE8"/>
+    <route id="!sporty" state="1" edges="gneE6 gneE7 gneE8"/>
+    <route id="!trailer" state="1" edges="-gneE8 -gneE7 -gneE6"/>
+    <route id="route_0" state="1" edges="gneE6 gneE7 gneE8"/>
+    <route id="route_1" state="1" edges="-gneE8 -gneE7 -gneE6"/>
+    <flowState id="coach" index="37" reroute="1"/>
+    <flowState id="flow_0" index="37" reroute="1"/>
+    <flowState id="sporty" index="37" reroute="1"/>
+    <flowState id="trailer" index="37" reroute="1"/>
+    <delay number="6" begin="148" end="142" depart="459.00" time="3234.00"/>
+    <vType id="DEFAULT_VEHTYPE" maxSpeed="40.00" vClass="passenger"/>
+    <vType id="coach"/>
+    <vType id="normal_car" maxSpeed="40.00"/>
+    <vType id="sporty_car" maxSpeed="60.00"/>
+    <vType id="trailer" maxSpeed="30.00" vClass="trailer"/>
+    <vehicle id="coach.36" type="coach" depart="599.98" route="!coach" speedFactor="0.73" state="600000 0 5.10 0 608000 0 0" pos="63.43" speed="9.01" posLat="0.00">
+        <device id="routing_coach.36" state="0"/>
+    </vehicle>
+    <vehicle id="flow_0.36" type="trailer" depart="599.98" route="!flow_0" speedFactor="1.07" state="600000 0 16.60 0 608000 0 0" pos="48.47" speed="6.99" posLat="0.00">
+        <device id="routing_flow_0.36" state="0"/>
+    </vehicle>
+    <vehicle id="sporty.35" type="sporty_car" depart="583.31" color="red" route="!sporty" speedFactor="0.94" state="588000 2 5.10 0 608000 0 0" pos="32.65" speed="12.95" posLat="0.00">
+        <device id="routing_sporty.35" state="0"/>
+    </vehicle>
+    <vehicle id="sporty.36" type="sporty_car" depart="599.98" color="red" route="!sporty" speedFactor="0.89" state="604000 0 5.10 0 608000 0 0" pos="17.67" speed="5.60" posLat="0.00">
+        <device id="routing_sporty.36" state="0"/>
+    </vehicle>
+    <vehicle id="trailer.35" type="trailer" depart="583.31" route="!trailer" speedFactor="1.06" state="588000 2 16.60 0 608000 0 0" pos="32.15" speed="14.30" posLat="0.00">
+        <device id="routing_trailer.35" state="0"/>
+    </vehicle>
+    <vehicle id="trailer.36" type="trailer" depart="599.98" route="!trailer" speedFactor="1.00" state="604000 0 16.60 0 608000 0 0" pos="25.17" speed="3.51" posLat="0.00">
+        <device id="routing_trailer.36" state="0"/>
+    </vehicle>
+    <lane id="-gneE6_0">
+        <vehicles value="trailer.35"/>
+    </lane>
+    <lane id="-gneE8_0">
+        <vehicles value="trailer.36 coach.36"/>
+    </lane>
+    <lane id="gneE6_0">
+        <vehicles value="sporty.36 flow_0.36"/>
+    </lane>
+    <lane id="gneE8_0">
+        <vehicles value="sporty.35"/>
+    </lane>
+</snapshot>

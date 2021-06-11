@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 11/19/20 12:18:06 by Eclipse SUMO GUI Version 1.7.0
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="D:\github\sumo-learning\2020-11-19-12-14-22\osm.net.xml"/>
+        <route-files value="D:\github\sumo-learning\2020-11-19-12-14-22\osm.passenger.trips.xml"/>
+        <additional-files value="D:\github\sumo-learning\2020-11-19-12-14-22\osm.poly.xml"/>
+    </input>
+
+    <processing>
+        <ignore-route-errors value="true"/>
+    </processing>
+
+    <routing>
+        <device.rerouting.adaptation-steps value="180"/>
+    </routing>
+
+    <report>
+        <verbose value="true"/>
+        <duration-log.statistics value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <gui_only>
+        <gui-settings-file value="D:\github\sumo-learning\2020-11-19-12-14-22\osm.view.xml"/>
+    </gui_only>
+
+</configuration>

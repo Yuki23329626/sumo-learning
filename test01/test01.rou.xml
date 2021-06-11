@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 10/30/20 05:12:22 by Eclipse SUMO netedit Version 1.7.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <output>
+        <output-file value="D:\github\sumo-learning\helloWorld\helloWorld.net.xml"/>
+    </output>
+
+    <processing>
+        <offset.disable-normalization value="true"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+    </junctions>
+
+    <netedit>
+        <route-files value="D:\github\sumo-learning\helloWorld\helloWorld.rou.xml"/>
+    </netedit>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="DEFAULT_VEHTYPE" maxSpeed="40.00" vClass="passenger"/>
+    <vType id="coach"/>
+    <vType id="normal_car" maxSpeed="40.00"/>
+    <vType id="sporty_car" maxSpeed="60.00"/>
+    <vType id="trailer" maxSpeed="30.00" vClass="trailer"/>
+    <route edges="gneE6 gneE7 gneE8" color="yellow" id="route_0"/>
+    <route edges="-gneE8 -gneE7 -gneE6" color="yellow" id="route_1"/>
+    <flow id="coach" type="coach" begin="0.00" from="-gneE8" to="-gneE6" via="-gneE7" end="4999.80" number="300"/>
+    <flow id="flow_0" type="trailer" begin="0.00" from="gneE6" to="gneE8" via="gneE7" end="4999.80" number="300"/>
+    <flow id="sporty" type="sporty_car" begin="0.00" color="red" from="gneE6" to="gneE8" via="gneE7" end="4999.80" number="300"/>
+    <flow id="trailer" type="trailer" begin="0.00" from="-gneE8" to="-gneE6" via="-gneE7" end="4999.80" number="300"/>
+</routes>

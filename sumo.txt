@@ -1,0 +1,8 @@
+1. fcd file output 
+sumo -c file.sumocfg --fcd-output filename.xml -e 
+
+2. ns3 
+traceExporter.py --fcd-input filename.xml --ns2mobility-output XX.tcl
+
+3. excel
+traceExporter.py --fcd-input filename.xml --gpsdat-output file.csv
