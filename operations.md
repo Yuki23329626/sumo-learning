@@ -30,17 +30,17 @@ cd git
 ``` CMD
 
 :: 設定檔案名稱
-set SUMO_PREFIX=2021-06-06-21-51-17
-
+set SUMO_PREFIX=2020-12-12-22-44-15
+set SUMO_MAXSPEED=_max-speed-40
 :: 模擬開始跟結束時間
-set SIM_BEGIN=300
-set SIM_END=1300
+set SIM_BEGIN=1300
+set SIM_END=1421
 
 :: 生成檔案路徑名稱
 set SUMO_CONFIG=D:\github\sumo-learning\%SUMO_PREFIX%\osm.sumocfg
-set SUMO_XML=D:\github\sumo-learning\%SUMO_PREFIX%\%SUMO_PREFIX%.xml
-set SUMO_CSV=D:\github\sumo-learning\%SUMO_PREFIX%\%SUMO_PREFIX%.csv
-set SUMO_TCL=D:\github\sumo-learning\%SUMO_PREFIX%\%SUMO_PREFIX%.tcl
+set SUMO_XML=D:\github\sumo-learning\%SUMO_PREFIX%\%SUMO_PREFIX%%SUMO_MAXSPEED%.xml
+set SUMO_CSV=D:\github\sumo-learning\%SUMO_PREFIX%\%SUMO_PREFIX%%SUMO_MAXSPEED%.csv
+set SUMO_TCL=D:\github\sumo-learning\%SUMO_PREFIX%\%SUMO_PREFIX%%SUMO_MAXSPEED%.tcl
 echo %SUMO_PREFIX%
 echo %SUMO_CONFIG%
 echo %SUMO_XML%
@@ -57,7 +57,7 @@ python D:\SUMO\tools\traceExporter.py --fcd-input %SUMO_XML% --gpsdat-output %SU
 
 5. ./waf --run "test09 --traceFile=scratch/test09.tcl --nodeNum=100 --duration=60 --selectedEnb=0 --outputDir=test09-4"
 在 server 上產生結果
-./waf --run "scratch/lteudp_multi_udp --numberOfUes=100 --startUe=0 --endUe=4 --isSdnEnabled=true --isDownlink=true --isUplink=true --interAppInterval=0.01 --interPacketInterval=50"
+./waf --run "scratch/lteudp_multi_udp --numberOfUes=5 --startUe=0 --endUe=4 --isSdnEnabled=true --isDownlink=true --isUplink=true --interAppInterval=1 --interPacketInterval=1000" > test.log
 
 cd sumo-learning
 git pull

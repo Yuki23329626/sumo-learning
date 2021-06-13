@@ -278,6 +278,7 @@ bool isSdnEnabled;
 
 void manualAttach(NodeContainer* ueNodes, NetDeviceContainer* ueLteDevs, NodeContainer* enbNodes, NetDeviceContainer* enbLteDevs, uint16_t numberOfUes, uint16_t numberOfEnbs)
 {
+    cout << "manualAttach" << endl;
     if(!isSdnEnabled) return;
     for(int i=0; i<numberOfUes; i++){
         Ptr<const MobilityModel> ueMobilityModel = ueNodes->Get(i)->GetObject<MobilityModel>();
