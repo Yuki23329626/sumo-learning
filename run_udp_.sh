@@ -3,12 +3,13 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 
 trap "kill 0" INT
 
-prefixTCL="test10"
+prefixTCL="2021-06-08-16-43-01"
+maxSpeed="_max-speed-40"
 
 cd sumo-learning
 git pull
 cp ./multi_udp.cc ../scratch/
-cp ./${prefixTCL}/${prefixTCL}.tcl ../scratch/
+cp ./${prefixTCL}/${prefixTCL}${maxSpeed}.tcl ../scratch/
 cd ..
 
 prefixName="multi_udp_sdn"
@@ -25,7 +26,7 @@ mkdir -p $outLogDir
 cp ./sumo-learning/merge_multi.sh $outLogDir
 cp ././sumo-learning/log_to_csv.py $outLogDir
 
-logName="log.${prefixName}"
+logName="log.${prefixName}${maxSpeed}"
 outLogPath="${outLogDir}/${logName}"
 animFile="anim.${prefixName}_${i}"
 echo "logName = ${logName}"
