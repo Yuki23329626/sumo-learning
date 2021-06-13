@@ -515,9 +515,9 @@ int main (int argc, char *argv[])
     //      Vector enbPosition (distance * (i + 1), distance, 0);
     //      enbPositionAlloc->Add (enbPosition);
     // //    }
-    for ( uint16_t i=0; i < numberOfEnbs; i++){
-	    enbPositionAlloc->Add (Add(Vector(1987+(i%8)*314, 1305+(i/8)*272, 0));
-    }
+    //for ( uint16_t i=0; i < numberOfEnbs; i++){
+//	    enbPositionAlloc->Add(Vector(1987+(i%8)*314, 1305+(i/8)*272, 0));
+//    }
 
     // enbPositionAlloc->Add(Vector(583, 365, 0));
 
@@ -540,7 +540,7 @@ int main (int argc, char *argv[])
 
     // enbPositionAlloc->Add(Vector(1317, 950, 0));
 
-    /*
+    
     enbPositionAlloc->Add(Vector(577, 211, 0)); //1
     enbPositionAlloc->Add(Vector(722, 208, 0)); //2
     enbPositionAlloc->Add(Vector(880, 198, 0)); //3
@@ -600,7 +600,7 @@ int main (int argc, char *argv[])
     enbPositionAlloc->Add(Vector(923, 1085, 0));  //51
     enbPositionAlloc->Add(Vector(1103, 1075, 0)); //52
     enbPositionAlloc->Add(Vector(1352, 1111, 0)); //53
-    */
+    
 
     MobilityHelper enbMobility;
     enbMobility.SetMobilityModel ("ns3::ConstantPositionMobilityModel");

@@ -47,7 +47,8 @@ def get_packet(fin_dir):
 def getHOTime(finDir):
     handover_time = {}
     list_handover_time = []
-    files = glob.glob(os.path.join(finDir, "*0"))
+    files = glob.glob(os.path.join(finDir, "log.*"))
+    print("files",files)
     with open(files[0], "r") as fin:
         lines = fin.readlines()
         for line in lines:
@@ -98,13 +99,17 @@ def get_avg_delay_all(packet_dict):
             upload_1m_delay_sum = upload_1m_delay_sum + delay_1m
     
     print("average upload delay(1k byte):")
-    print(upload_1k_delay_sum/route_upload)
+    if(route_upload>0):
+        print(upload_1k_delay_sum/route_upload)
     print("average upload delay(1m byte):")
-    print(upload_1m_delay_sum/route_upload)
+    if(route_upload>0):
+        print(upload_1m_delay_sum/route_upload)
     print("average download delay(1k byte):")
-    print(download_1k_delay_sum/route_download)
+    if(route_download>0):
+        print(download_1k_delay_sum/route_download)
     print("average download delay(1m byte):")
-    print(download_1m_delay_sum/route_download)
+    if(route_download>0):
+        print(download_1m_delay_sum/route_download)
 
 def get_section(list_handover_time, packet):
     section = {}
@@ -175,14 +180,31 @@ def get_avg_delay_from_hotime(section):
                 upload_05k_delay_sum = upload_05k_delay_sum + delay_05k
                 upload_1k_delay_sum = upload_1k_delay_sum + delay_1k
                 upload_1m_delay_sum = upload_1m_delay_sum + delay_1m
-
-    upload_05k_delay = upload_05k_delay_sum/route_upload
-    upload_1k_delay = upload_1k_delay_sum/route_upload
-    upload_1m_delay = upload_1m_delay_sum/route_upload
-
-    download_05k_delay = download_05k_delay_sum/route_download
-    download_1k_delay = download_1k_delay_sum/route_download
-    download_1m_delay = download_1m_delay_sum/route_download
+    if(route_upload==0):
+        upload_05k_delay=0
+    else:
+        upload_05k_delay = upload_05k_delay_sum/route_upload
+    if(route_upload==0):
+        upload_1k_delay=0
+    else:
+        upload_1k_delay = upload_1k_delay_sum/route_upload
+    if(route_upload==0):
+        upload_1m_delay=0
+    else:
+        upload_1m_delay = upload_1m_delay_sum/route_upload
+    
+    if(route_download==0):
+        download_05k_delay=0
+    else:
+        download_05k_delay = download_05k_delay_sum/route_download
+    if(route_download==0):
+        download_1k_delay=0
+    else:
+        download_1k_delay = download_1k_delay_sum/route_download
+    if(route_download==0):
+        download_1m_delay=0
+    else:
+        download_1m_delay = download_1m_delay_sum/route_download
     print("average delay of upload 0.5KB(sec):")
     print(upload_05k_delay)
     print("average delay of upload 1KB(sec):")
@@ -240,26 +262,30 @@ def get_avg_delay_from_hotime_2(section):
 prefix_name = " ".join(map(shlex.quote, sys.argv[1:]))
 print("prefix_name: ", prefix_name)
 
-dir_udp_sdn = prefix_name + "udp_sdn"
+dir_udp_sdn = prefix_name + "sdn"
 
-dir_udp_lte = prefix_name + "udp_lte"
+dir_udp_lte = prefix_name + "lte"
 
 dir_output = prefix_name
 
+
 if(dir_udp_sdn == "" or not os.path.exists(dir_udp_sdn)):
+    os.mkdir( dir_udp_sdn )
     print("please check if the dir_udp_sdn is exist")
     exit()
 
 if(dir_udp_lte == "" or not os.path.exists(dir_udp_lte)):
+    os.mkdir( dir_udp_lte )
     print("please check if the dir_udp_lte is exist")
     exit()
 
 if not os.path.exists(dir_output):
+    os.mkdir( dir_output )
     print("\nmaking dir for output files:", dir_output)
-    os.makedirs(dir_output)
+    #os.makedirs(dir_output)
 print("\ndir_output:", dir_output, "has exist!")
 
-# sacn each log in dir
+# scan each log in dir
 
 path_packet_sdn = dir_output + "/packet_sdn_.json"
 path_packet_lte = dir_output + "/packet_lte_.json"
@@ -282,7 +308,9 @@ else:
 
 # get handover time in sdn
 
+print("dir_udp_sdn:", dir_udp_sdn)
 list_handover_time = getHOTime(dir_udp_sdn)
+print("list_handover_time",list_handover_time)
 
 #print("len(list_handover_time):", len(list_handover_time))
 
