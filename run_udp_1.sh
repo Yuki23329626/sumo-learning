@@ -3,7 +3,7 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 
 trap "kill 0" INT
 
-prefixTCL="2021-06-08-16-43-01"
+prefixTCL="2020-12-12-22-44-15"
 maxSpeed="_max-speed-80"
 
 cd sumo-learning
