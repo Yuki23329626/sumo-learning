@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import shutil
 import json
+import pylab
 
 # get each packet according to their uid to locate its source and destination
 # in order to collect its info [From, To, TxTime, RxTime, Delay]
