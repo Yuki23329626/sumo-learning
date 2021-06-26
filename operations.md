@@ -31,10 +31,10 @@ cd git
 
 :: 設定檔案名稱
 set SUMO_PREFIX=2020-12-12-22-44-15
-set SUMO_MAXSPEED=_max-speed-40
+set SUMO_MAXSPEED=_max-speed-80
 :: 模擬開始跟結束時間
-set SIM_BEGIN=1300
-set SIM_END=1421
+set SIM_BEGIN=300
+set SIM_END=420
 
 :: 生成檔案路徑名稱
 set SUMO_CONFIG=D:\github\sumo-learning\%SUMO_PREFIX%\osm.sumocfg
