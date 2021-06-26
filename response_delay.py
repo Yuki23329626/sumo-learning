@@ -217,7 +217,7 @@ print(onoffResponseDelay_bpreet_2)
 #     plt.text(t_online[i]-2, onoffResponseDelay_bpreet_1_5[i]+1.5, str(onoffResponseDelay_bpreet_1_5[i])[:5])
 #     plt.text(t_online[i]-2, onoffResponseDelay_bpreet_2[i]+1.5, str(onoffResponseDelay_bpreet_2[i])[:5])
 
-# plt.legend(['our scheme', 'BPREET, 1/2', 'BPREET, 2/5', 'BPREET, 1/3'])
+# plt.legend(['our scheme', 'BPREET, 1/2', 'BPREET, 2/3', 'BPREET, 1/3'])
 
 # plt.show()
 
@@ -237,13 +237,13 @@ ax1.plot(t_online, onoffResponseDelay_bpreet_1_5, color='brown', linestyle='--',
 ax1.plot(t_online, onoffResponseDelay_bpreet_2, color='red', linestyle='-.', marker='o', markersize=3)
 
 for i in range(5):
-    plt.text(t_online[i]-2, onoffResponseDelay_our_scheme[i]+1.5, str(onoffResponseDelay_our_scheme[i])[:5])
-    plt.text(t_online[i]-2, onoffResponseDelay_bpreet_1[i]+1.5, str(onoffResponseDelay_bpreet_1[i])[:5])
-    plt.text(t_online[i]-2, onoffResponseDelay_bpreet_1_5[i]+1.5, str(onoffResponseDelay_bpreet_1_5[i])[:5])
-    plt.text(t_online[i]-2, onoffResponseDelay_bpreet_2[i]+1.5, str(onoffResponseDelay_bpreet_2[i])[:5])
+    plt.text(t_online[i]-2, onoffResponseDelay_our_scheme[i]+1, str(onoffResponseDelay_our_scheme[i])[:5])
+    plt.text(t_online[i]-2, onoffResponseDelay_bpreet_1[i]+1, str(onoffResponseDelay_bpreet_1[i])[:5])
+    plt.text(t_online[i]-2, onoffResponseDelay_bpreet_1_5[i]+1, str(onoffResponseDelay_bpreet_1_5[i])[:5])
+    plt.text(t_online[i]-2, onoffResponseDelay_bpreet_2[i]+1, str(onoffResponseDelay_bpreet_2[i])[:5])
 ax1.tick_params(axis ='y') 
   
-plt.legend(['our scheme', 'BPREET, 1/2', 'BPREET, 2/5', 'BPREET, 1/3'])
+plt.legend(['our scheme', 'BPREET, 1/2', 'BPREET, 2/3', 'BPREET, 1/3'])
 
 # Adding Twin Axes to plot using dataset_2
 ax2 = ax1.twinx() 
@@ -261,4 +261,64 @@ print(t_online)
 plt.title('Average delay(min) with on-off model', fontweight ="bold") 
   
 # Show plot
+plt.show()
+
+fig, ax1 = plt.subplots() 
+
+gas_BPSDQS = 164557 
+gas_BPREET = 621400 
+
+compare_times = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+gas_cost_BPSDQS = []
+gas_cost_BPREET = []
+
+for i in range(11):
+    gas_cost_BPSDQS.append(gas_BPSDQS)
+    gas_cost_BPREET.append(compare_times[i]*gas_BPREET)
+
+print(gas_cost_BPSDQS)
+print(gas_cost_BPREET)
+
+plt.title('Gas consumption on the smart contract')
+ax1.set_xlabel('Numbers of equality test (each request)') 
+ax1.set_ylabel('Gas cost (gas)') 
+ax1.plot(compare_times, gas_cost_BPSDQS, color='green', marker='o', markersize=3)
+ax1.plot(compare_times, gas_cost_BPREET, color='blue', linestyle=':', marker='o', markersize=3)
+plt.legend(['our scheme', 'BPREET'])
+plt.show()
+
+
+compare_times2 = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+gas_cost_BPSDQS2 = []
+gas_cost_BPREET2 = []
+
+for i in range(11):
+    gas_cost_BPSDQS2.append(compare_times2[i]*gas_BPSDQS)
+    gas_cost_BPREET2.append(compare_times2[i]*gas_BPREET)
+
+print(gas_cost_BPSDQS2)
+print(gas_cost_BPREET2)
+
+plt.title('Gas consumption on the smart contract')
+ax1.set_xlabel('Numbers of request') 
+ax1.set_ylabel('Gas cost (gas)') 
+ax1.plot(compare_times2, gas_cost_BPSDQS2, color='green', marker='o', markersize=3)
+ax1.plot(compare_times2, gas_cost_BPREET2, color='blue', linestyle=':', marker='o', markersize=3)
+plt.legend(['our scheme', 'BPREET'])
+plt.show()
+
+fig1 = plt.figure(1, figsize=(8,6))
+axes = plt.gca()
+condition = ['BPSDQS', 'BPREET']
+BPSDQS_gas = [gas_BPSDQS]
+BPREET_gas = [gas_BPREET]
+x = np.arange(len(condition))
+width = 0.4
+plt.bar(x, BPSDQS_gas, width, color='blue', label='BPSDQS')
+plt.bar(x+width, BPREET_gas, width, color='green', label='BPREET')
+plt.xticks( x + width / 2, condition)
+plt.ylabel('Average Delay(sec)')
+plt.title('Gas cost of each request')
+plt.legend( loc='upper right')
+
 plt.show()
